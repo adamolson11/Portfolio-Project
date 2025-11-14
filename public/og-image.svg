@@ -1,0 +1,29 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  
+  <!-- Background orbs -->
+  <circle cx="200" cy="150" r="150" fill="#0ea5e9" opacity="0.1"/>
+  <circle cx="1000" cy="500" r="200" fill="#38bdf8" opacity="0.1"/>
+  
+  <!-- Content -->
+  <text x="100" y="250" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="bold" fill="#ffffff">
+    Hudson Blue
+  </text>
+  <text x="100" y="320" font-family="system-ui, -apple-system, sans-serif" font-size="32" fill="#38bdf8">
+    New Ness
+  </text>
+  <text x="100" y="400" font-family="system-ui, -apple-system, sans-serif" font-size="28" fill="#94a3b8" max-width="1000">
+    Worlds, systems, and tools stitched from code, story, and long-term thinking.
+  </text>
+  
+  <!-- Icon elements -->
+  <rect x="100" y="480" width="60" height="80" rx="8" fill="#38bdf8" opacity="0.8"/>
+  <rect x="180" y="500" width="60" height="60" rx="8" fill="#0ea5e9" opacity="0.8"/>
+  <rect x="260" y="490" width="60" height="70" rx="8" fill="#7dd3fc" opacity="0.8"/>
+</svg>

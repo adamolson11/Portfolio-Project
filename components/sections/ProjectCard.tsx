@@ -7,22 +7,28 @@ import { motion } from 'framer-motion';
 import TagPill from '@/components/ui/TagPill';
 
 export default function ProjectCard({ project, index = 0 }: { project: Project; index?: number }) {
+  const statusColors = {
+    live: 'bg-green-500/10 border-green-500/30 text-green-300',
+    'in-progress': 'bg-sky-500/10 border-sky-500/30 text-sky-300',
+    archived: 'bg-slate-500/10 border-slate-500/30 text-slate-400',
+  };
+
   return (
     <motion.article
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-80px' }}
       transition={{ duration: 0.45, ease: 'easeOut', delay: index * 0.06 }}
-      whileHover={{ scale: 1.02 }}
-      className="glass-card glass-card-hover p-5"
+      whileHover={{ scale: 1.02, y: -4 }}
+      className="glass-card glass-card-hover p-5 transition-all duration-300 hover:shadow-xl hover:shadow-sky-500/10"
     >
-      <div className="mb-4 relative w-full aspect-[4/3] bg-slate-800/50 rounded-lg overflow-hidden">
+      <div className="mb-4 relative w-full aspect-[4/3] bg-slate-800/50 rounded-lg overflow-hidden group">
         {project.image ? (
           <Image 
             src={project.image} 
             alt={project.title} 
             fill
-            className="object-cover"
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         ) : (
@@ -33,11 +39,12 @@ export default function ProjectCard({ project, index = 0 }: { project: Project; 
       </div>
       <div className="flex items-start justify-between gap-3">
         <div>
-          <h3 className="font-semibold text-lg text-white">{project.title}</h3>
+          <h3 className="font-semibold text-lg text-white group-hover:text-sky-300 transition-colors">{project.title}</h3>
           {project.subtitle ? <p className="text-slate-400 text-sm mt-0.5">{project.subtitle}</p> : null}
         </div>
         {project.status ? (
-          <span className="text-[11px] px-2 py-0.5 rounded-full border border-slate-700 text-slate-300 capitalize">
+          <span className={`text-[11px] px-2.5 py-1 rounded-full border capitalize flex items-center gap-1.5 ${statusColors[project.status] || statusColors['in-progress']}`}>
+            <span className={`w-1.5 h-1.5 rounded-full ${project.status === 'live' ? 'bg-green-400 animate-pulse' : project.status === 'in-progress' ? 'bg-sky-400' : 'bg-slate-400'}`} />
             {project.status.replace('-', ' ')}
           </span>
         ) : null}

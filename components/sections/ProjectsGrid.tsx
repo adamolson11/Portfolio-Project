@@ -34,7 +34,7 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
                 hidden: { opacity: 1 },
                 show: { opacity: 1, transition: { staggerChildren: 0.06 } },
               }}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
             >
               {list.map((p, idx) => (
                 <ProjectCard key={p.slug} project={p} index={idx} />
