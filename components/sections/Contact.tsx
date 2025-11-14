@@ -22,10 +22,10 @@ export default function Contact() {
       className="border-t border-slate-800"
     >
       <div className="max-w-xl mx-auto px-6 py-16 text-center">
-        <h2 className="text-2xl font-bold mb-3 text-white">Let's build something honest.</h2>
-        <p className="mb-6 text-slate-300">If you value curiosity, self-taught grit, and long-term thinking, let's talk.</p>
+        <h2 className="text-2xl font-bold mb-3 text-white">Let's connect.</h2>
+        <p className="mb-6 text-slate-300">If you're hiring for entry-level IT or dev roles, or just want to talk about projects, web dev, or systems thinking, feel free to reach out.</p>
         <div className="flex justify-center gap-3">
-          <a href="mailto:hudson@example.com" className="px-5 py-2 bg-sky-500 text-white rounded-md hover:bg-sky-400 transition-colors">Email me</a>
+          <a href="mailto:adam@example.com" className="px-5 py-2 bg-sky-500 text-white rounded-md hover:bg-sky-400 transition-colors">Send me an email</a>
         </div>
         <div className="mt-8 flex justify-center gap-4">
           {socialLinks.map((link) => {

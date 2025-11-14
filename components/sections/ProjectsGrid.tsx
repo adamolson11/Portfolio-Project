@@ -14,8 +14,8 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
 
   return (
     <section id="projects" className="max-w-6xl mx-auto">
-      <h2 className="text-2xl font-bold mb-1 text-white tracking-tight">Projects</h2>
-      <p className="text-slate-400 mb-6">Things I'm building in code, story, and systems.</p>
+      <h2 className="text-2xl font-bold mb-1 text-white tracking-tight">Projects I'm Working On</h2>
+      <p className="text-slate-400 mb-6">Small tools and experiments as I learn. Some are in progress, some are just starting out.</p>
 
       {groups.map((g) => {
         const list = sorted.filter((p) => (p.category ?? 'code') === g.key);
