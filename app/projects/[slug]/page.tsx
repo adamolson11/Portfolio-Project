@@ -58,20 +58,20 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             <a
               href={project.link}
               target="_blank"
-              rel="noreferrer"
-              className="px-5 py-2 rounded-md bg-sky-500 text-white hover:bg-sky-400"
+              rel="noopener noreferrer"
+              className="px-5 py-2 rounded-md bg-sky-500 text-white hover:bg-sky-400 transition-colors"
             >
-              View live site →
+              View live demo →
             </a>
           ) : null}
           {project.repo ? (
             <a
               href={project.repo}
               target="_blank"
-              rel="noreferrer"
-              className="px-5 py-2 rounded-md border border-slate-700 text-slate-200 hover:bg-slate-800"
+              rel="noopener noreferrer"
+              className="px-5 py-2 rounded-md border border-slate-700 text-slate-200 hover:bg-slate-800 transition-colors"
             >
-              View code →
+              View on GitHub →
             </a>
           ) : null}
         </div>

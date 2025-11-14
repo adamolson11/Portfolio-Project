@@ -22,8 +22,8 @@ export default function Footer() {
               <motion.a
                 key={link.name}
                 href={link.href}
-                target="_blank"
-                rel="noreferrer"
+                target={link.name === 'Email' ? '_self' : '_blank'}
+                rel={link.name === 'Email' ? undefined : 'noopener noreferrer'}
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className="w-9 h-9 rounded-full border border-slate-800 text-slate-500 hover:text-sky-400 hover:border-sky-500/40 hover:bg-sky-500/5 flex items-center justify-center transition-all duration-200"
@@ -34,8 +34,8 @@ export default function Footer() {
             );
           })}
         </div>
-        <div>© {new Date().getFullYear()} New Ness · Hudson Blue</div>
-        <div className="mt-2 text-xs">Still under construction. So am I.</div>
+        <div>© {new Date().getFullYear()} Adam Olson</div>
+        <div className="mt-2 text-xs">Portfolio built with Next.js and Tailwind CSS</div>
       </div>
     </footer>
   );

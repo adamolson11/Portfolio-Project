@@ -14,60 +14,76 @@ export default function ProjectCard({ project, index = 0 }: { project: Project; 
   };
 
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.45, ease: 'easeOut', delay: index * 0.06 }}
-      whileHover={{ scale: 1.02, y: -4 }}
-      className="glass-card glass-card-hover p-5 transition-all duration-300 hover:shadow-xl hover:shadow-sky-500/10"
-    >
-      <div className="mb-4 relative w-full aspect-[4/3] bg-slate-800/50 rounded-lg overflow-hidden group">
-        {project.image ? (
-          <Image 
-            src={project.image} 
-            alt={project.title} 
-            fill
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
-        ) : (
-          <div className="absolute inset-0 flex items-center justify-center text-slate-500">
-            <span className="text-lg">No image</span>
+    <Link href={`/projects/${project.slug}`} className="block">
+      <motion.article
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{ duration: 0.45, ease: 'easeOut', delay: index * 0.06 }}
+        whileHover={{ scale: 1.02, y: -4 }}
+        className="glass-card glass-card-hover p-5 transition-all duration-300 hover:shadow-xl hover:shadow-sky-500/10 cursor-pointer"
+      >
+        <div className="mb-4 relative w-full aspect-[4/3] bg-slate-800/50 rounded-lg overflow-hidden group">
+          {project.image ? (
+            <Image 
+              src={project.image} 
+              alt={project.title} 
+              fill
+              className="object-cover transition-transform duration-300 group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center text-slate-500">
+              <span className="text-lg">No image</span>
+            </div>
+          )}
+        </div>
+        <div className="flex items-start justify-between gap-3">
+          <div>
+            <h3 className="font-semibold text-lg text-white group-hover:text-sky-300 transition-colors">{project.title}</h3>
+            {project.subtitle ? <p className="text-slate-400 text-sm mt-0.5">{project.subtitle}</p> : null}
           </div>
-        )}
-      </div>
-      <div className="flex items-start justify-between gap-3">
-        <div>
-          <h3 className="font-semibold text-lg text-white group-hover:text-sky-300 transition-colors">{project.title}</h3>
-          {project.subtitle ? <p className="text-slate-400 text-sm mt-0.5">{project.subtitle}</p> : null}
-        </div>
-        {project.status ? (
-          <span className={`text-[11px] px-2.5 py-1 rounded-full border capitalize flex items-center gap-1.5 ${statusColors[project.status] || statusColors['in-progress']}`}>
-            <span className={`w-1.5 h-1.5 rounded-full ${project.status === 'live' ? 'bg-green-400 animate-pulse' : project.status === 'in-progress' ? 'bg-sky-400' : 'bg-slate-400'}`} />
-            {project.status.replace('-', ' ')}
-          </span>
-        ) : null}
-      </div>
-      <p className="text-sm text-slate-300 mt-3">{project.description}</p>
-      <div className="mt-4 flex items-center justify-between">
-        <div className="flex gap-2 flex-wrap">
-          {(project.tech ?? []).slice(0, 5).map((t) => (
-            <TagPill key={t} label={t} />
-          ))}
-        </div>
-        <div className="text-sm whitespace-nowrap">
-          {project.link ? (
-            <a href={project.link} target="_blank" rel="noreferrer" className="text-sky-300 hover:text-sky-200">
-              View project →
-            </a>
-          ) : project.repo ? (
-            <a href={project.repo} target="_blank" rel="noreferrer" className="text-sky-300 hover:text-sky-200">
-              View code →
-            </a>
+          {project.status ? (
+            <span className={`text-[11px] px-2.5 py-1 rounded-full border capitalize flex items-center gap-1.5 ${statusColors[project.status] || statusColors['in-progress']}`}>
+              <span className={`w-1.5 h-1.5 rounded-full ${project.status === 'live' ? 'bg-green-400 animate-pulse' : project.status === 'in-progress' ? 'bg-sky-400' : 'bg-slate-400'}`} />
+              {project.status.replace('-', ' ')}
+            </span>
           ) : null}
         </div>
-      </div>
-    </motion.article>
+        <p className="text-sm text-slate-300 mt-3">{project.description}</p>
+        <div className="mt-4 flex items-center justify-between">
+          <div className="flex gap-2 flex-wrap">
+            {(project.tech ?? []).slice(0, 5).map((t) => (
+              <TagPill key={t} label={t} />
+            ))}
+          </div>
+          <div className="text-sm whitespace-nowrap">
+            {project.link ? (
+              <a 
+                href={project.link} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                onClick={(e) => e.stopPropagation()}
+                className="text-sky-300 hover:text-sky-200 hover:underline"
+              >
+                Live demo →
+              </a>
+            ) : project.repo ? (
+              <a 
+                href={project.repo} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="text-sky-300 hover:text-sky-200 hover:underline"
+              >
+                View code →
+              </a>
+            ) : (
+              <span className="text-slate-500 text-xs">Click to learn more</span>
+            )}
+          </div>
+        </div>
+      </motion.article>
+    </Link>
   );
 }

@@ -34,8 +34,8 @@ export default function Contact() {
               <motion.a
                 key={link.name}
                 href={link.href}
-                target="_blank"
-                rel="noreferrer"
+                target={link.name === 'Email' ? '_self' : '_blank'}
+                rel={link.name === 'Email' ? undefined : 'noopener noreferrer'}
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className="w-10 h-10 rounded-full border border-slate-700 text-slate-400 hover:text-sky-400 hover:border-sky-500/60 hover:bg-sky-500/5 flex items-center justify-center transition-all duration-200"
