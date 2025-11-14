@@ -14,7 +14,7 @@ export const projects: Project[] = [
     status: 'live',
     highlight: true,
     year: '2025',
-    image: '/images/projects/sys-pulse.png',
+    image: '/images/projects/sys-pulse.svg',
   },
   {
     slug: 'dream-logger',
@@ -26,6 +26,6 @@ export const projects: Project[] = [
     repo: 'https://github.com/you/dream-logger',
     status: 'in-progress',
     year: '2025',
-    image: '/images/projects/dream-logger.png',
+    image: '/images/projects/dream-logger.svg',
   },
 ];

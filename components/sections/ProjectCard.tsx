@@ -2,6 +2,7 @@
 
 import type { Project } from '@/lib/types';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import TagPill from '@/components/ui/TagPill';
 
@@ -15,11 +16,20 @@ export default function ProjectCard({ project, index = 0 }: { project: Project; 
       whileHover={{ scale: 1.02 }}
       className="glass-card glass-card-hover p-5"
     >
-      <div className="mb-4">
+      <div className="mb-4 relative w-full aspect-[4/3] bg-slate-800/50 rounded-lg overflow-hidden">
         {project.image ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={project.image} alt={project.title} className="rounded-lg w-full object-cover aspect-[4/3]" />
-        ) : null}
+          <Image 
+            src={project.image} 
+            alt={project.title} 
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center text-slate-500">
+            <span className="text-lg">No image</span>
+          </div>
+        )}
       </div>
       <div className="flex items-start justify-between gap-3">
         <div>

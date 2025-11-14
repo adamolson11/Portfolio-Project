@@ -3,6 +3,7 @@
 import { projects } from '@/data/projects';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import TagPill from '@/components/ui/TagPill';
 import { motion } from 'framer-motion';
 
@@ -32,8 +33,16 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         {project.subtitle ? <p className="text-slate-400 text-lg mb-6">{project.subtitle}</p> : null}
 
         {project.image ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={project.image} alt={project.title} className="rounded-2xl w-full mb-8" />
+          <div className="relative w-full aspect-video rounded-2xl overflow-hidden mb-8 bg-slate-800/50">
+            <Image 
+              src={project.image} 
+              alt={project.title} 
+              fill
+              className="object-cover"
+              sizes="(max-width: 1200px) 100vw, 1200px"
+              priority
+            />
+          </div>
         ) : null}
 
         <div className="flex flex-wrap gap-2 mb-6">
