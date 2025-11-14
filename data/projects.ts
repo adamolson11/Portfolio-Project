@@ -1,22 +1,31 @@
-import type { Project } from '../lib/types';
+import type { Project } from '@/lib/types';
 
 export const projects: Project[] = [
   {
-    title: 'Project One',
-    description: 'A short description of project one.',
-    slug: 'project-one',
-    image: '/images/projects/project-1.png',
-    tags: ['Next.js', 'TypeScript', 'Tailwind'],
-    repo: '',
-    live: '',
+    slug: 'sys-pulse',
+    title: 'SysPulse',
+    subtitle: 'Real-time system metrics dashboard',
+    description:
+      'A lightweight dashboard that visualizes CPU, memory, and network usage with smooth animations.',
+    category: 'code',
+    tech: ['Next.js', 'TypeScript', 'Tailwind', 'Framer Motion'],
+    link: 'https://syspulse.example.com',
+    repo: 'https://github.com/you/syspulse',
+    status: 'live',
+    highlight: true,
+    year: '2025',
+    image: '/images/projects/sys-pulse.png',
   },
   {
-    title: 'Project Two',
-    description: 'A short description of project two.',
-    slug: 'project-two',
-    image: '/images/projects/project-2.png',
-    tags: ['React', 'API'],
-    repo: '',
-    live: '',
+    slug: 'dream-logger',
+    title: 'Dream Logger',
+    description:
+      'A minimalist app for logging dream entries and visualizing sleep patterns.',
+    category: 'world',
+    tech: ['React', 'Tailwind'],
+    repo: 'https://github.com/you/dream-logger',
+    status: 'in-progress',
+    year: '2025',
+    image: '/images/projects/dream-logger.png',
   },
 ];

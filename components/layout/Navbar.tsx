@@ -2,15 +2,14 @@ import Link from 'next/link';
 
 export default function Navbar() {
   return (
-    <header className="bg-white shadow-sm">
+    <header className="sticky top-0 backdrop-blur-md bg-slate-950/80 border-b border-slate-800 z-50">
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link href="/">
-          <a className="font-bold text-lg">My Portfolio</a>
-        </Link>
-        <nav className="space-x-4 text-sm">
-          <a href="#projects" className="text-slate-600 hover:text-slate-900">Projects</a>
-          <a href="#about" className="text-slate-600 hover:text-slate-900">About</a>
-          <a href="#contact" className="text-slate-600 hover:text-slate-900">Contact</a>
+        <Link href="/" className="font-bold text-lg text-white hover:text-sky-400 transition">Hudson Blue</Link>
+        <nav className="space-x-6 text-sm">
+          <a href="#about" className="text-slate-300 hover:text-sky-400 transition">About</a>
+          <a href="#projects" className="text-slate-300 hover:text-sky-400 transition">Projects</a>
+          <a href="#writing" className="text-slate-300 hover:text-sky-400 transition">Writing</a>
+          <a href="#contact" className="text-slate-300 hover:text-sky-400 transition">Contact</a>
         </nav>
       </div>
     </header>
